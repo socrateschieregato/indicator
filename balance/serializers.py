@@ -1,6 +1,12 @@
 from rest_framework.serializers import ModelSerializer
 
-from balance.models import Equipment, Charge
+from balance.models import Equipment, Charge, Weight
+
+
+class ChargeSerializer(ModelSerializer):
+    class Meta:
+        model = Charge
+        fields = '__all__'
 
 
 class EquipmentSerializer(ModelSerializer):
@@ -9,7 +15,7 @@ class EquipmentSerializer(ModelSerializer):
         fields = '__all__'
 
 
-class ChargeSerializer(ModelSerializer):
+class WeightSerializer(ModelSerializer):
     class Meta:
-        model = Charge
+        model = Weight
         fields = '__all__'

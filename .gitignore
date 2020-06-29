@@ -10,7 +10,6 @@ db.sqlite3
 
 # Distribution / packaging
 .Python
-migrations/
 env/
 build/
 develop-eggs/

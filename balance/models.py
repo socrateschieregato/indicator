@@ -20,7 +20,6 @@ class Weight(models.Model):
     gross_weight = models.DecimalField(max_digits=7, decimal_places=3)
     tare = models.DecimalField(max_digits=7, decimal_places=3)
     net_weight = models.DecimalField(max_digits=7, decimal_places=3)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

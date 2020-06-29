@@ -1,12 +1,12 @@
 from django_filters import rest_framework as filters
 from rest_framework.pagination import LimitOffsetPagination
 
-from balance.models import Equipment, Charge
+from balance.models import Equipment, Charge, Weight
 
 
 class EquipmentFilter(filters.FilterSet):
-    created__gte = filters.NumberFilter(field_name='created_by', lookup_expr='gte')
-    created__lte = filters.NumberFilter(field_name='created_by', lookup_expr='lte')
+    created__gte = filters.NumberFilter(field_name='created_at', lookup_expr='gte')
+    created__lte = filters.NumberFilter(field_name='created_at', lookup_expr='lte')
 
     identification = filters.CharFilter(lookup_expr='iexact')
 
@@ -17,7 +17,7 @@ class EquipmentFilter(filters.FilterSet):
         fields = (
             'identification',
             'status',
-            'created_by'
+            'created_at'
         )
 
 
@@ -26,21 +26,37 @@ class EquipmentPagination(LimitOffsetPagination):
 
 
 class ChargeFilter(filters.FilterSet):
-    created__gte = filters.NumberFilter(field_name='created_by', lookup_expr='gte')
-    created__lte = filters.NumberFilter(field_name='created_by', lookup_expr='lte')
+    created__gte = filters.NumberFilter(field_name='created_at', lookup_expr='gte')
+    created__lte = filters.NumberFilter(field_name='created_at', lookup_expr='lte')
 
     identification = filters.CharFilter(lookup_expr='iexact')
-
-    status = filters.CharFilter(lookup_expr='iexact')
 
     class Meta:
         model = Charge
         fields = (
             'identification',
-            'status',
-            'created_by'
+            'created_at'
         )
 
 
 class ChargePagination(LimitOffsetPagination):
     default_limit = 10
+
+
+class WeightFilter(filters.FilterSet):
+    created__gte = filters.NumberFilter(field_name='created_at', lookup_expr='gte')
+    created__lte = filters.NumberFilter(field_name='created_at', lookup_expr='lte')
+
+    created_by = filters.CharFilter(lookup_expr='iexact')
+
+    class Meta:
+        model = Weight
+        fields = (
+            'created_by',
+            'created_at'
+        )
+
+
+class WeightPagination(LimitOffsetPagination):
+    default_limit = 10
+

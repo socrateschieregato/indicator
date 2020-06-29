@@ -1,4 +1,8 @@
-from settings.base import *
+import os
+from settings.base import *  # noqa
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DATABASES = {
     'default': {

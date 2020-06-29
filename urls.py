@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework_simplejwt import views as jwt_views
 
-from balance.views import WeightAPIView, ChargeViewSet, EquipmentViewSet
+from balance.views import ChargeViewSet, EquipmentViewSet
 from ports.views import PortsAPIView
 
 urlpatterns = [
@@ -14,4 +14,3 @@ urlpatterns = [
     path('charges/', ChargeViewSet.as_view({'get': 'list'}), name='get_charges_api'),
     path('equipments/', EquipmentViewSet.as_view({'get': 'list'}), name='get_equipment_api'),
 ]
-

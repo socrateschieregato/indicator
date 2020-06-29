@@ -6,7 +6,6 @@ TIMEOUT = 5
 
 
 def read_weight_by_serial_port(port='COM4'):
-    errors = []
     try:
         with serial.Serial(port, baudrate=9600, timeout=1) as ser:
             if not ser:
@@ -44,5 +43,3 @@ def read_weight_by_serial_port(port='COM4'):
     except Exception as e:
         print(f'Error - trying to connect, {e}')
         raise SerialNotFound
-
-

@@ -59,4 +59,3 @@ class WeightFilter(filters.FilterSet):
 
 class WeightPagination(LimitOffsetPagination):
     default_limit = 10
-
